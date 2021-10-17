@@ -1,0 +1,14 @@
+[package]
+edition = "2021"
+name = "todo"
+version = "0.0.0"
+
+[dependencies]
+colored = "*"
+home = "*"
+serde_json = "*"
+structopt = "*"
+
+[dependencies.serde]
+version = "*"
+features = ["derive"]
