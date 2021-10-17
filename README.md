@@ -22,4 +22,4 @@ cargo install --git https://github.com/Brian3647/todo-rs.git
 
 ![(You can see the full image in .github/assets/usage.png)](.github/assets/usage.png)
 
-*This picture shows the integrated terminal of VSCode with Github dark dimmed theme, shell is zsh and uses [starship}(https://starship.rs/) theme*
+*This picture shows the integrated terminal of VSCode with Github dark dimmed theme, shell is zsh and uses [starship](https://starship.rs/) theme*
