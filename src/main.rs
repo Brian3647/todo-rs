@@ -21,7 +21,7 @@ type Result<T> = std::result::Result<T, Box<dyn Error>>;
 fn main() -> Result<()> {
 	let cmd = Command::from_args();
 	let file = cmd.file();
-	let contents = read_to_string(&file)?;
+	let contents = read_to_string(file)?;
 	let tasks = match serde_json::from_str::<Vec<Task>>(&contents) {
 		Ok(x) => x,
 		Err(e) => {
@@ -89,7 +89,7 @@ fn main() -> Result<()> {
 			} else {
 				let mut iter = tasks.into_iter();
 
-				if iter.find(|p| p.id == id).is_none() {
+				if !iter.any(|p| p.id == id) {
 					error!("Couldn't find a post with id {}", id);
 					exit(0);
 				} else {
@@ -115,7 +115,7 @@ fn main() -> Result<()> {
 		}
 	}
 
-	write(&cmd.file(), serde_json::to_string(&res).unwrap()).unwrap();
+	write(cmd.file(), serde_json::to_string(&res).unwrap()).unwrap();
 
 	Ok(())
 }

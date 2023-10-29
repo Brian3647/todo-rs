@@ -10,7 +10,7 @@ pub struct Task {
 	pub title: String,
 	pub info: String,
 	pub id: usize,
-	pub done: bool
+	pub done: bool,
 }
 
 impl Display for Task {
@@ -45,7 +45,7 @@ impl Task {
 			title,
 			info,
 			id,
-			done: false
+			done: false,
 		}
 	}
 }

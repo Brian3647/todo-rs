@@ -1,8 +1,6 @@
 use structopt::StructOpt;
 
-use std::fs::create_dir_all;
-use std::fs::write;
-use std::fs::File;
+use std::fs::{create_dir_all, write, File};
 use std::path::PathBuf;
 
 use crate::helpers::get_home_dir;
@@ -31,7 +29,7 @@ pub enum Command {
 
 	/// Mark a task as NOT done.
 	#[structopt(name = "undone")]
-	UnDone { id: usize }
+	UnDone { id: usize },
 }
 
 impl Command {
@@ -42,7 +40,7 @@ impl Command {
 		default.push("data.json");
 
 		if !default.as_path().exists() {
-			create_dir_all(&default.parent().unwrap()).unwrap();
+			create_dir_all(default.parent().unwrap()).unwrap();
 			File::create(&default).unwrap();
 			write(&default, "[]").unwrap();
 		}
